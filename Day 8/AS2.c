@@ -1,6 +1,7 @@
-#include<stdio.h>
-#include<unistd.h>
+// parent --> child1 --> child2 --> child3
 
+#include<unistd.h>
+#include<stdio.h>
 
 int main(){
   int i, s1, s2, s3;
@@ -17,14 +18,14 @@ int main(){
 			waitpid(ret3,&s3,0);
 			_exit(0);
 		  }
-
+            
             for(i=1; i<=5; i++) {
 			printf("child: %d\n", i);
 			sleep(1);
 			waitpid(ret2,&s2,0);
 			_exit(0);
 	  }
-
+	        
             for(i=1; i<=5; i++) {
 			printf("child: %d\n", i);
 			sleep(1);
@@ -38,7 +39,6 @@ int main(){
           }
       }
  }
-return 0;
+return 0;			
 }
-
 
